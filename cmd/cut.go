@@ -1,6 +1,11 @@
 package cmd
 
-import "github.com/spf13/cobra"
+import (
+	"fmt"
+	"wb_lvl2_cut/internal/cut"
+
+	"github.com/spf13/cobra"
+)
 
 var (
 	fields    string
@@ -11,7 +16,19 @@ var (
 var cutCmd = &cobra.Command{
 	Use: "cut",
 	RunE: func(cmd *cobra.Command, args []string) error {
+		result, err := cut.GetResultChannel(cut.Options{
+			Fields:    fields,
+			Delimiter: delimiter,
+			Separated: separated,
+		})
+		if err != nil {
+			fmt.Println(err.Error())
+			return err
+		}
 
+		for line := range result {
+			fmt.Println(line)
+		}
 		return nil
 	},
 }
