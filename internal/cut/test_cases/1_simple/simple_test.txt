@@ -1,0 +1,5 @@
+apple,cherry
+one,three
+no_delimiter_line
+empty_before_delimiter,trailing
+singlefield

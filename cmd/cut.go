@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"strings"
 	"wb_lvl2_cut/internal/cut"
 
 	"github.com/spf13/cobra"
@@ -27,7 +28,7 @@ var cutCmd = &cobra.Command{
 		}
 
 		for line := range result {
-			fmt.Println(line)
+			fmt.Println(strings.Join(line, delimiter))
 		}
 		return nil
 	},

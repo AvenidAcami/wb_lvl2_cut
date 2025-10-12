@@ -1,0 +1,5 @@
+banana,cherry
+two,three
+no_delimiter_line
+,trailing
+singlefield
